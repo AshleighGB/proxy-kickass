@@ -17,7 +17,7 @@ $randomID = mt_rand();
 if($checkSession && $csrfValid) {
   // we're all good here!
 } else {
-  header('Location: https://proxy-g2g.azurewebsites.net/?PROXYSESSID='.$randomID.'&cs='.$csrfToken);
+  header('Location: https://proxy-kickass.azurewebsites.net/?PROXYSESSID='.$randomID.'&cs='.$csrfToken);
 }
 
 ?>
@@ -48,7 +48,7 @@ iVBORw0KGgoAAAANSUhEUgAAAVQAAAGvEAYAAABUV/EsAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7O
 
 
 
-<title>HOME - Secure Proxy Service</title>
+<title>HOME - Kickass Proxy</title>
 <meta name="description" content="<!--[meta_description]-->">
 <meta name="keywords" content="<!--[meta_keywords]-->">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js" type="text/javascript"></script>
@@ -92,7 +92,7 @@ function Admin() {
 					</header>
 					<div id="urlform" class="urlform" >
 		<form action="/includes/process.php?action=update" method="post" onsubmit="return updateLocation(this);" class="form">
-			<input type="text" name="u" id="input" size="40" class="textbox" autofocus="false" style="border: 1px solid #ffffff;" value="http://dayt.se/">
+			<input type="text" name="u" id="input" size="40" class="textbox" autofocus="false" style="border: 1px solid #ffffff;" value="https://kat.cr/">
 			<button type="submit" value="GO!" class="button" style="color:white;margin-top: 8px;">GO!</button>
 			<ul id="options">
 				<?php foreach ($toShow as $option) echo '<li><input type="checkbox" name="'.$option['name'].'" id="'.$option['name'].'"'.$option['checked'].'><label for="'.$option['name'].'" class="tooltip" onmouseover="tooltip(\''.$option['escaped_desc'].'\')" onmouseout="exit();">'.$option['title'].'</label></li>';?>
