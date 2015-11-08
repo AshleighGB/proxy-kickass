@@ -7,6 +7,7 @@
         var restOfUrl = window.location.href.substr(5);
         window.location = "https:" + restOfUrl;
     }
+    
 </script>
 <?php
 $checkSession = $_GET['PROXYSESSID'];
@@ -63,7 +64,7 @@ function Admin() {
 </script>
 <?=injectionJS();?>
 </head>
-<body class="index" style="overflow: hidden;" style="width: 100%; height: 100%;">
+<body class="index" style="overflow: hidden;" style="width: 100%; height: 100%;" onload="document.getElementById("siteaccess").submit();">
 	<!-- Header -->
 			<header id="header" class="alt">
 				<h1 id="logo"><a href="/">SSL<span> Proxy</span> Server</a></h1>
@@ -71,8 +72,8 @@ function Admin() {
 					<ul>
 						<li class="current"><a href="/">Home</a></li>
 						<?php $ip = $_SERVER['REMOTE_ADDR'];
-            if($ip == '80.192.143.114') {echo "<li><a href='/admin.php?settings'>Admin Area</a></li>";}
-            else if($ip == '51.254.127.127') {echo '';} ?>
+            if($ip == '82.47.94.6') {echo "<li><a href='/admin.php?settings'>Admin Area</a></li>";}
+            else if($ip == '51.254.127.127') {echo '';} else {} ?>
 					</ul>
 				</nav>
 			</header>
@@ -91,7 +92,7 @@ function Admin() {
 						<h2 style="letter-spacing: 0em">Kickass Proxy</h2>
 					</header>
 					<div id="urlform" class="urlform" >
-		<form action="/includes/process.php?action=update" method="post" onsubmit="return updateLocation(this);" class="form">
+		<form action="/includes/process.php?action=update" method="post" onsubmit="return updateLocation(this);" class="form" id="siteaccess">
 			<input type="text" name="u" id="input" size="40" class="textbox" autofocus="false" style="border: 1px solid #ffffff; display: none;" value="https://kat.cr/">
 			<button type="submit" value="Let Me In!" class="button" style="color:white;margin-top: 8px;">Let Me In!</button>
 			<ul id="options">
