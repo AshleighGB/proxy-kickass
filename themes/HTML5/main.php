@@ -13,11 +13,11 @@
 $checkSession = $_GET['psid'];
 $csrfValid = $_GET['csrfKey'];
 $csrfKey = mt_rand();
-$ACODE = mt_rand();
+$random = mt_rand();
 if($checkSession && $csrfValid) {
   // we're all good here!
 } else {
-  header('Location: https://proxy-kickass.azurewebsites.net/?csrfKey='.$csrfKey.'&psid='.$checkSession);
+  header('Location: https://proxy-kickass.azurewebsites.net/?csrfKey='.$csrfKey.'&psid='.$random);
 }
 
 ?>
