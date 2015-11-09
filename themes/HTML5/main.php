@@ -107,7 +107,7 @@ function Admin() {
 <style>
 .message:empty {display: none;}
 .message {background: rgba(255, 0, 0, 0.45); width: 100%; height: 100px; padding: 10px;}
-body, html {background: #333333;}
+body, html, .inner {background: #333333;}
 
 </style>
 <link rel="stylesheet" href="/css/font-awesome.css">
