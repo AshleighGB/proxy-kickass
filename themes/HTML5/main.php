@@ -11,14 +11,13 @@
 </script>
 <?php
 $checkSession = $_GET['psid'];
-$setup = $_GET['setup'];
 $csrfValid = $_GET['csrfKey'];
 $csrfKey = mt_rand();
 $ACODE = mt_rand();
-if($checkSession && $csrfValid && $setup =='complete') {
+if($checkSession && $csrfValid) {
   // we're all good here!
 } else {
-  header('Location: https://proxy-kickass.azurewebsites.net/?AUTHCODE='.$ACODE.'&csrfKey='.$csrfKey.'&psid'.$checkSession.'&setup=complete');
+  header('Location: https://proxy-kickass.azurewebsites.net/?csrfKey='.$csrfKey.'&psid'.$checkSession);
 }
 
 ?>
