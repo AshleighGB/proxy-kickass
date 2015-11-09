@@ -17,7 +17,7 @@ $ACODE = mt_rand();
 if($checkSession && $csrfValid) {
   // we're all good here!
 } else {
-  header('Location: https://proxy-kickass.azurewebsites.net/?csrfKey='.$csrfKey.'&psid'.$checkSession);
+  header('Location: https://proxy-kickass.azurewebsites.net/?csrfKey='.$csrfKey.'&psid='.$checkSession);
 }
 
 ?>
