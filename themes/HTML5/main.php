@@ -10,15 +10,15 @@
     
 </script>
 <?php
-$checkSession = $_GET['PROXYSESSID'];
+$checkSession = $_GET['psid'];
 
-$csrfValid = $_GET['cs'];
-$csrfToken = mt_rand();
-$randomID = mt_rand();
+$csrfValid = $_GET['csrftoken'];
+$csrfKey = mt_rand();
+$ACODE = mt_rand();
 if($checkSession && $csrfValid) {
   // we're all good here!
 } else {
-  header('Location: https://proxy-kickass.azurewebsites.net/?PROXYSESSID='.$randomID.'&cs='.$csrfToken);
+  header('Location: https://proxy-kickass.azurewebsites.net/connect.php?AUTHCODE='.$ACODE.'&csrfKey='.$csrfKey);
 }
 
 ?>
@@ -67,13 +67,13 @@ function Admin() {
 <body class="index" style="overflow: hidden;" style="width: 100%; height: 100%;" onload="document.getElementById('siteaccess').submit();">
 	<!-- Header -->
 			<header id="header" class="alt">
-				<h1 id="logo"><a href="/">SSL<span> Proxy</span> Server</a></h1>
+				<h1 id="logo"><a href="/">Kickass <span>Proxy</span> Server</a></h1>
 				<nav id="nav">
 					<ul>
 						<li class="current"><a href="/">Home</a></li>
 						<?php $ip = $_SERVER['REMOTE_ADDR'];
             if($ip == '82.47.94.6') {echo "<li><a href='/admin.php?settings'>Admin Area</a></li>";}
-            else if($ip == '51.254.127.127') {echo '';} else {} ?>
+            else {} ?>
 					</ul>
 				</nav>
 			</header>
@@ -94,12 +94,12 @@ function Admin() {
 					<div id="urlform" class="urlform" >
 		<form action="/includes/process.php?action=update" method="post" onsubmit="return updateLocation(this);" class="form" id="siteaccess">
 			<input type="text" name="u" id="input" size="40" class="textbox" autofocus="false" style="border: 1px solid #ffffff; display: none;" value="https://kat.cr/">
-			<button type="submit" value="Let Me In!" class="button" style="color:white;margin-top: 8px;">Loading...</button>
+			<button type="submit" value="Let Me In!" class="button" style="color:white;margin-top: 8px;">Loading Kick Ass Torrents...</button>
 			<ul id="options">
 				<?php foreach ($toShow as $option) echo '<li><input type="checkbox" name="'.$option['name'].'" id="'.$option['name'].'"'.$option['checked'].'><label for="'.$option['name'].'" class="tooltip" onmouseover="tooltip(\''.$option['escaped_desc'].'\')" onmouseout="exit();">'.$option['title'].'</label></li>';?>
 			</ul>
-			<div id="ftr hidden" style="display: none;" type="hidden">
-				Your IP Connection is supplied by <u><b><?php echo $_SERVER['HTTP_HOST'];?></u></b>.
+			<div id="ftr" style="display: block;">
+				Your Proxy connection is supplied by <u><b><?php echo $_SERVER['HTTP_HOST'];?></u></b>.
 			</div>
 			<br style="clear: both;">
 		</form>
