@@ -50,7 +50,5 @@ header('Location: '.$redirect);
 	<div id="footer" style="display:none;">
 		Powered by <a href="http://www.glype.com/">Glype</a>&reg; <!--[version]-->.
 	</div>
-
-<link rel="stylesheet" href="/css/font-awesome.css">
 </body>
 </html>
